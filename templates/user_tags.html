@@ -1,0 +1,39 @@
+<head>
+    <title>User's tags</title>
+</head>
+
+<body>
+    <h1>Your tags</h1>
+
+    {% if tags %}
+    <ul>
+    {% for tag in tags %}
+        <li>{{tag[0]}} </li>
+      
+         <form method="post" action="/user_tags">
+            <input type="hidden" name="tag" value="{{tag[0]}}">
+            <input type="submit" value="view the photos for this tag">
+        </form>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if message %}
+        <h2>{{message}}</h2>
+    {% endif %}
+
+    {% if photos %}
+    <ul>
+    {% for photo in photos %}
+        <li>{{photo[2]}}<br>
+        <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+        <br>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    <ul>
+        <li><a href='/upload'>Upload a photo</a> </li>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+    </ul>

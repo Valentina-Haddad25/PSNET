@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+   <title>Show Pictures</title>
+ </head>
+
+<body>
+{% if message %}
+ <h2>{{message}}</h2>
+{% endif %}
+
+
+{% if photos %}
+ <ul>
+ {% for photo in photos %}
+
+     <li>{{photo[2]}}<br>
+     <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+     <br>
+
+        </div>
+        <form method = "post" action="{{url_for('Comments')}}">
+            <input type="hidden" name="photo_id" value="{{photo[1]}}">
+            <input type="hidden" name="user_id" value="{{photo[3]}}">
+            <label type="text" name="Comments">Comment:</label>
+            <input type="text" name="Comments" required="true">
+            <br />
+            <input type="submit" name="add" value="Add">
+          </form>     
+    </body>
+<head>

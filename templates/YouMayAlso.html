@@ -1,0 +1,33 @@
+<head>
+    <title>
+Photos you may like:
+
+    </title>
+
+ </head>
+
+ <h2>Photos you may like </h2>
+
+ {%if photos%}
+
+ <ul>
+
+ {%for photo in photos%}
+
+
+
+        <li>{{photo[1]}}<br>
+            <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+
+    {% endfor %}
+
+    </ul>
+
+    {% else %}
+
+
+    <p> No pictures to show </p>
+    
+        {% endif %}
+    
+    

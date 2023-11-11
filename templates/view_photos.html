@@ -1,0 +1,48 @@
+<head>
+    <title>Here are your photos!</title>
+</head>
+
+
+    <body>
+        {% if message %}
+            <h4>{{message}}!</h4>
+        {% endif %}
+
+
+        {% if albums %}
+            <h2>Albums</h2>
+                <ul>
+                {% for album in albums %}
+
+
+                    <a href = '/view_photos/{{album[0]}}'>{{album[0]}}</a><br />
+                {% endfor %}
+                </ul>
+        {% endif %}
+
+
+        {% if photos %}
+                {% for photo in photos %}
+                    <li>{{photo[1]}}<br>
+                    <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+                    
+                    <br>
+                    
+
+
+                {% endfor %}
+                </ul>
+        {% endif %}
+    </body>
+
+    <ul>
+        <li><a href='/Adding_Friend'>Add a Friend</a></li>
+        <li><a href='/friend_list'>See all your friends!</a></li>
+        <li><a href='/upload'>Upload a photo</a> </li>
+        <li><a href='/Create_Album'>Create an Album!</li>
+        <li><a href='/browse_albums'>Browse other users albums!</li>
+        <li><a href='/deletealbum'>Delete an album!</li>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+        </ul>
+        <ul>

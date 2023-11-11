@@ -1,0 +1,20 @@
+<head>
+  <title>Browse a user's albums!</title>
+</head>
+  <body>
+      {% if message %}
+          <h4>{{message}}!</h4>
+      {% endif %}
+
+
+          <h2>Enter a user to view their content</h2>
+              <form method="post" enctype="multipart/form-data" action="/browse_albums">
+                  <label for="user_email">User's email:</label>
+                  <input type="text" name="user_email" required='true' /><br />
+                  <input type="submit" value="Search" />
+              </form>  
+                   
+  </body>
+
+
+

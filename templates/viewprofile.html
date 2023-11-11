@@ -1,0 +1,13 @@
+<head>
+    <title>View profile:</title>
+</head>
+<body>
+    <h1>View profile:</h1>
+    <form method="post" action="{{url_for('viewprofile')}}">
+        <label type="text" for="user_email">User's email:</label>
+        <input type="text" name="user_email" required="true">
+        <br />
+        <input type="submit">
+    </form>
+    <a href='/'>Go Home</a>
+    <a href="/viewalbums">Back to Albums</a>

@@ -1,0 +1,24 @@
+<head>
+    <title>Top 5 Tags</title>
+</head>
+
+<body>
+    <h1>Top 5 Tags</h1>
+
+    {% if tags %}
+    <ul>
+    {% for tag in tags %}
+        <li>{{tag[0]}}: {{tag[1]}}</li>
+        <form method="post" action="/Pop_tags">
+            <input type="hidden" name="tag" value="{{tag[0]}}">
+            <input type="submit" value="View Photos">
+        </form>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    <ul>
+        <li><a href='/upload'>Upload a photo</a> </li>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+    </ul>
